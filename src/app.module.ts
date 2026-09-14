@@ -34,6 +34,8 @@ import { User } from './users/entities/user.entity';
     GraphQLModule.forRoot<ApolloDriverConfig>({
       driver: ApolloDriver,
       autoSchemaFile: join(process.cwd(), 'src/schema.gql'),
+      playground: true, // Enables the interactive playground
+      introspection: true, // Allows the playground to see all your queries and mutations
       // CRITICAL: We pass the Express request into GraphQL context
       // so our Guards can read the 'Authorization: Bearer' header later!
       context: ({ req }) => ({ req }),
